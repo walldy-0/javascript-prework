@@ -18,7 +18,7 @@
         return result;
     }
 
-    function getWinner(computerMove, playerMove) {
+    function GetWinner(computerMove, playerMove) {
         let winner;
 
         if ((computerMove == Moves.Rock && playerMove == Moves.Paper)
@@ -36,21 +36,21 @@
         return winner;
     }
 
-    function playRound(playerMove) {
+    function PlayRound(playerMove) {
         const computerMove = Math.floor(Math.random() * 3 + 1);
-        clearMessages();
-        printMessage('Twój ruch to: ' + GetMoveName(playerMove));
-        printMessage('Ruch komputera to: ' + GetMoveName(computerMove));
-        printMessage(getWinner(computerMove, playerMove));
+        ClearMessages();
+        PrintMessage('Twój ruch to: ' + GetMoveName(playerMove));
+        PrintMessage('Ruch komputera to: ' + GetMoveName(computerMove));
+        PrintMessage(GetWinner(computerMove, playerMove));
     }
 
     document.getElementById('play-rock').addEventListener('click', function() {
-        playRound(Moves.Rock);
+        PlayRound(Moves.Rock);
     });
     document.getElementById('play-paper').addEventListener('click', function() {
-        playRound(Moves.Paper);
+        PlayRound(Moves.Paper);
     });
     document.getElementById('play-scissors').addEventListener('click', function() {
-        playRound(Moves.Scissors);
+        PlayRound(Moves.Scissors);
     });
 }
