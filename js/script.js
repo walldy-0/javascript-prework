@@ -2,7 +2,7 @@
     const moves = { rock: 1, paper: 2, scissors: 3 }
     const results = { computer: 'Komputer wygrywa!', player: 'Ty wygrywasz!', draw: 'Remis!' }
 
-    function getMoveName(move) {
+    const getMoveName = function(move) {
         let result;
 
         if (move == moves.rock) {
@@ -18,7 +18,7 @@
         return result;
     }
 
-    function getWinner(computerMove, playerMove) {
+    const getWinner = function(computerMove, playerMove) {
         let winner;
 
         if ((computerMove == moves.rock && playerMove == moves.paper)
@@ -36,7 +36,7 @@
         return winner;
     }
 
-    function playRound(playerMove) {
+    const playRound = function(playerMove) {
         const computerMove = Math.floor(Math.random() * 3 + 1);
         clearMessages();
         printMessage('Twój ruch to: ' + getMoveName(playerMove));
