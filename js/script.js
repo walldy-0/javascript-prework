@@ -1,14 +1,14 @@
 {
-    const Moves = { Rock: 1, Paper: 2, Scissors: 3 }
-    const Results = { Computer: 'Komputer wygrywa!', Player: 'Ty wygrywasz!', Draw: 'Remis!' }
+    const moves = { rock: 1, paper: 2, scissors: 3 }
+    const results = { computer: 'Komputer wygrywa!', player: 'Ty wygrywasz!', draw: 'Remis!' }
 
-    function GetMoveName(move) {
+    function getMoveName(move) {
         let result;
 
-        if (move == Moves.Rock) {
+        if (move == moves.rock) {
             result = 'kamień';
         }
-        else if (move == Moves.Paper) {
+        else if (move == moves.paper) {
             result = 'papier';
         }
         else {
@@ -18,39 +18,39 @@
         return result;
     }
 
-    function GetWinner(computerMove, playerMove) {
+    function getWinner(computerMove, playerMove) {
         let winner;
 
-        if ((computerMove == Moves.Rock && playerMove == Moves.Paper)
-            || (computerMove == Moves.Paper && playerMove == Moves.Scissors)
-            || (computerMove == Moves.Scissors && playerMove == Moves.Rock)) {
-            winner = Results.Player;
+        if ((computerMove == moves.rock && playerMove == moves.paper)
+            || (computerMove == moves.paper && playerMove == moves.scissors)
+            || (computerMove == moves.scissors && playerMove == moves.rock)) {
+            winner = results.player;
         }
         else if (computerMove == playerMove) {
-            winner = Results.Draw;
+            winner = results.draw;
         }
         else {
-            winner = Results.Computer;
+            winner = results.computer;
         }
 
         return winner;
     }
 
-    function PlayRound(playerMove) {
+    function playRound(playerMove) {
         const computerMove = Math.floor(Math.random() * 3 + 1);
-        ClearMessages();
-        PrintMessage('Twój ruch to: ' + GetMoveName(playerMove));
-        PrintMessage('Ruch komputera to: ' + GetMoveName(computerMove));
-        PrintMessage(GetWinner(computerMove, playerMove));
+        clearMessages();
+        printMessage('Twój ruch to: ' + getMoveName(playerMove));
+        printMessage('Ruch komputera to: ' + getMoveName(computerMove));
+        printMessage(getWinner(computerMove, playerMove));
     }
 
     document.getElementById('play-rock').addEventListener('click', function() {
-        PlayRound(Moves.Rock);
+        playRound(moves.rock);
     });
     document.getElementById('play-paper').addEventListener('click', function() {
-        PlayRound(Moves.Paper);
+        playRound(moves.paper);
     });
     document.getElementById('play-scissors').addEventListener('click', function() {
-        PlayRound(Moves.Scissors);
+        playRound(moves.scissors);
     });
 }
